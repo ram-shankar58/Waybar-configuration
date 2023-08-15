@@ -1,0 +1,148 @@
+* {
+  min-height: 0;
+  font-family: "JetBrainsMono Nerd Font","FontAwesome"; /* FontAwesome is a fallback font */
+  font-size: 20px;
+  font-weight: 500;
+}
+
+window#waybar {
+  transition-property: background-color;
+  transition-duration: 0.2s;
+   /* ugly blackish bar */
+  /* background-color: #181825; */
+ /* completely transparent bar */ 
+  background-color: transparent; 
+}
+
+window#waybar.hidden {
+  opacity: 0.5; /* does nothing */
+}
+
+#workspaces {
+  background-color: transparent;
+}
+
+#workspaces button {
+  all: initial;
+  min-width: 0;
+  box-shadow: inset 0 -3px transparent;
+  padding: 0 18px;
+  margin: 4px 3px;
+  min-height: 0;
+  border-radius: 4px;
+  /* background-color: #142141; */
+  background-color: transparent;
+  color: #95a5a6;
+}
+
+#workspaces button:hover {
+  box-shadow: inherit;
+  text-shadow: inherit;
+  color: #1e1e2e;
+  background-color: #95a5a6;
+}
+
+#workspaces button.active {
+  color: #1e1e2e;
+  background-color: #89b4fa;
+}
+
+#workspaces button.urgent {
+  background-color: #f38ba8;
+}
+
+#clock,
+#pulseaudio,
+#custom-logo,
+#custom-power,
+#memory,
+#tray,
+#battery,
+#backlight,
+#custom-updates,
+/* #window, */
+#cpu {
+  min-height: 0;
+  border-radius: 4px;
+  padding: 0px 12px;
+  margin: 4px 3px;
+  /* background-color: #142141; */
+  /*  MAKES ALL BAR MODULES TRANSPARENT */
+  background-color: transparent;
+}
+
+#window {
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 100px;
+}
+
+#custom-sep {
+  padding: 0px;
+  color: #585b70;
+}
+
+#cpu {
+  /* color: #94e2d5; */
+  color: #97c277;
+}
+
+#memory {
+  color: #cba6f7;
+}
+
+#clock {
+  /* color: #89b4fa; */
+  color: #56b6c2;
+}
+
+#clock.date {
+  color: #74c7ec;
+}
+
+#window {
+  color: #a6e3a1;
+}
+
+#pulseaudio {
+  /* color: #b4befe; */
+  color: #e4bf7a;
+}
+
+#custom-logo {
+  /* color: #89b4fa; */
+  color: #2bbaf5;
+}
+
+#backlight {
+  color: #c678dd;
+}
+#battery {
+  color: #e06c75;
+}
+#custom-updates {
+  color: #d19a66;
+  /* color: #61afef; */
+}
+#custom-power {
+  color: #f38ba8;
+  margin-right: 6px;
+  padding-right: 9px;
+  font-size: 14px;
+}
+
+#pulseaudio.muted {
+  /* color: #a6adc8; */
+  color: #e4bf7a;
+}
+
+@keyframes blink {
+  to {
+    background-color: #f38ba8;
+    color: #181825;
+  }
+}
+
+tooltip {
+  border-radius: 8px;
+}

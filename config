@@ -1,0 +1,100 @@
+// vim:ft=json
+{
+    "layer": "top",
+    "position": "top",
+    "height": 36,
+    // "margin": 6, stick with the default for now
+    "spacing": 4,
+    "exclusive": true,
+    "gtk-layer-shell": true,
+    "passthrough": false,
+    "fixed-center": true,
+    "modules-left": ["custom/logo" ,"wlr/workspaces", "custom/updates","clock"],
+    "modules-center": [], // hyprland/window
+    "modules-right": ["cpu", "backlight", "battery", "pulseaudio", "clock#date", "tray", "custom/power"],
+    "wlr/workspaces": {
+        "on-click": "activate",
+        "format": "{name}",
+        "all-outputs": true,
+        "disable-scroll": false,
+        "active-only": false
+    },
+    "tray": {
+        "spacing": 10
+    },
+    "clock": {
+        "tooltip": false,
+        "interval": 1, // otherwise it gets updated once a min (60s) 
+        "format": " {:%H:%M:%S}"
+    },
+    "clock#date": {
+        "format": " {:%a %b %d}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "cpu": {
+        "format": "  {usage}%",
+        "tooltip": true,
+        "on-click": "kitty -e btop",
+        "interval": 1
+    },
+    "memory": {
+        "format": "  {used:0.2f}G"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        // "format-muted": "  muted",
+        "format-muted": "  ",
+        "format-icons": {
+            "headphone": " ",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [" ", " ", " "]
+        },
+        // "on-click": "pactl set-sink-volume 0 0%", // "pavucontrol"
+        "on-click": "pactl set-sink-mute 0 toggle", // "pavucontrol"
+    },
+    "custom/logo": {
+		"format": "",
+		"tooltip": false,
+		"on-click": "launchpad",
+		"on-click-right": "code ~/.config/hypr/hyprland.conf ~/.config/waybar/config ~/.config/waybar/style.css",  // "powermenu"
+	},
+	"battery": {
+	    "full-at": "100",
+	    "format": "",
+	      "states": {
+        "warning": 30,
+        "critical": 15
+                    },
+        "format": "{capacity}% {icon} ",
+        "format-charging": "{capacity}%  ",
+        "format-plugged": "{capacity}%  ", // ﮣ -> good icon, but obsolete :(
+        "format-icons": ["", "", "", "", ""],
+        // "max-length": 25
+    },
+    "backlight": {
+        "device":"intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "on-scroll-up": "light -U 1",
+        "on-scroll-down": "light -A 1"
+    },
+    "custom/sep": {
+		"format": "|",
+		"tooltip": false
+	},
+	"custom/updates": {
+	    "format": "{}",
+    	"exec": "$HOME/.config/hypr/scripts/checkupdates",
+        "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
+        "on-click": "kitty -e update-menu"
+	},
+    "custom/power": {
+        "tooltip": false,
+        "on-click": "archlinux-logout",// "powermenu"
+        "format": " "
+    },
+}
