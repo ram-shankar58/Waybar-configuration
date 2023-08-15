@@ -57,7 +57,7 @@
         "on-click": "pactl set-sink-mute 0 toggle", // "pavucontrol"
     },
     "custom/internet-speed": {
-        "exec": "~/path/to/your/script/internet_speed.sh",
+        "exec": "~/.config/waybar/internet_speed.sh",
         "interval": 60,
         "format": "{output} Mbps"
     },
