@@ -11,7 +11,7 @@
     "fixed-center": true,
     "modules-left": ["custom/logo" ,"wlr/workspaces", "custom/updates","clock"],
     "modules-center": [], // hyprland/window
-    "modules-right": ["cpu", "backlight", "battery", "pulseaudio", "clock#date", "tray", "custom/power"],
+    "modules-right": ["internet-speed", "cpu", "backlight", "battery", "pulseaudio", "clock#date", "tray", "custom/power"],
     "wlr/workspaces": {
         "on-click": "activate",
         "format": "{name}",
@@ -56,6 +56,12 @@
         // "on-click": "pactl set-sink-volume 0 0%", // "pavucontrol"
         "on-click": "pactl set-sink-mute 0 toggle", // "pavucontrol"
     },
+    "custom/internet-speed": {
+        "exec": "~/path/to/your/script/internet_speed.sh",
+        "interval": 60,
+        "format": "{output} Mbps"
+    },
+
     "custom/logo": {
 		"format": "",
 		"tooltip": false,
